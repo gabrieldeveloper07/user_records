@@ -41,17 +41,7 @@
     <td>Country</td>
     <td><select name="pais">
 
-<option value="Canadá" >Canadá</option>
-<option value="Cabo Verde" >Cabo Verde</option>
-<option value="Islas Caimán" >Islas Caimán</option>
-<option value="República Centroafricana" >República Centroafricana</option>
-<option value="Chad" >Chad</option>
-<option value="Chile" >Chile</option>
-<option value="China" >China</option>
-<option value="Isla de Christmas" >Isla de Christmas</option>
-<option value="Islas de Cocos o Keeling" >Islas de Cocos o Keeling</option>
-<option value="Colombia" >Colombia</option>
-<option value="Comores" >Comores</option>
+
 <option value="Congo" >Congo</option>
 <option value="Congo, República Democrática del" >Congo, República Democrática del</option>
 <option value="Islas Cook" >Islas Cook</option>

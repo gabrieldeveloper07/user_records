@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
@@ -9,6 +9,7 @@
  {
 	window.location="http://localhost/crudEdit/editar.php?parametro="+cod;
 	 }
+	 
  
  function eliminar(cod)
  {
@@ -118,6 +119,7 @@ $telefono=$_POST['telefono'];
            <td><a href="#" onclick="mostrarID( <?php echo $fila['id']?>)">Edit</a></td>
            <td><a href="#" onclick="eliminar( <?php echo $fila['id']?>)" style="color:#F00;">Remove</a></td>
         
+         
      <tr/>
       <?php }?>
   </table>

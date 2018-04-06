@@ -9,7 +9,12 @@ require("conexion.php");
 $cod=$_GET['parametro'];
 $obj=new conexion();
 $dato=$obj->mostrarRegistro("select * from tablaotros where id='$cod'");
-
+$funcion=$_REQUES['funcion'];
+//$cod=$_POTS['parametro'];
+if($funcion=="modificar")
+{
+	echo 'holaa';
+	}
 
 ?>
 <body style="background:#C99;">
@@ -63,7 +68,7 @@ $dato=$obj->mostrarRegistro("select * from tablaotros where id='$cod'");
     <td><input type="text" name="telefono" value="<?php echo $fila['telefono']?>" style="width:400px"/></td>
   </tr>
   <tr>
-      <td colspan="2" align="center"><input  type="submit" value="Edit" name="editar" /> </td>
+      <td colspan="2" align="center"><input  type="submit" value="GUARDAR" name="editar" /> </td>
       </tr>
       <?php }?>
 </table>
