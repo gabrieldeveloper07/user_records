@@ -4,65 +4,68 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>User records</title>
+
  <script>
- function mostrarID(cod)
- {
-	window.location="http://localhost/crudEdit/editar.php?parametro="+cod;
-	 }
+
+     function mostrarID(cod){
+
+	      window.location="http://localhost/crudEdit/editar.php?parametro="+cod;
+	   }
 	 
- 
- function eliminar(cod)
- {
-	window.location="http://localhost/crudEdit/index.php?parametro="+cod+"&funcion=eliminar";
+     function eliminar(cod){
+
+	     window.location="http://localhost/crudEdit/index.php?parametro="+cod+"&funcion=eliminar";
 	 
-	 }
+	   }
 	 
-	 function agregar()
-	 {
-		 window.location="http://localhost/crudEdit/agregar.php";
+	   function agregar(){
+
+		  window.location = "http://localhost/crudEdit/agregar.php";
 		 }
+
  </script>
  
    <?php
+      require("conexion.php");
    
-   
- require("conexion.php");
-  $funcion=$_REQUEST['funcion'];
- $o=$_GET['parametro'];
- if($funcion !="eliminar")
- {
-	 $cod=$_POST['cod'];
- $nom=$_POST['nombre'];
- $apellido=$_POST['apellido'];
- $documento=$_POST['documento'];
- $edad=$_POST['edad'];
- $genero=$_POST['genero'];
-$pais=$_POST['pais'];
-$provincia=$_POST['provincia'];
-$municipio=$_POST['municipio'];
-$barrio=$_POST['barrio'];
-$telefono=$_POST['telefono'];
- }
+        $funcion = $_REQUEST['funcion'];
+        $o = $_GET['parametro'];
 
- $obj=new conexion();
- if($funcion=="modificar")
- {
+    if($funcion != "eliminar"){
+	    
+        $cod = $_POST['cod'];
+        $nom = $_POST['nombre'];
+        $apellido = $_POST['apellido'];
+        $documento = $_POST['documento'];
+        $edad = $_POST['edad'];
+        $genero = $_POST['genero'];
+        $pais = $_POST['pais'];
+        $provincia = $_POST['provincia'];
+        $municipio = $_POST['municipio'];
+        $barrio = $_POST['barrio'];
+        $telefono = $_POST['telefono'];
+      }
+
+         $obj=new conexion();
+      
+      if($funcion=="modificar"){
 	
-	 $sql="update tablaotros set nombre='$nom',apellido='$apellido',documento='$documento',edad='$edad',genero='$genero',pais='$pais',provincia='$provincia',municipio='$municipio',barrio='$barrio',telefono='$telefono' where id='$cod'";
-	 $obj->actualizar($sql);
-	header("location: index.php");
+	        $sql="update tablaotros set nombre='$nom',apellido='$apellido',documento='$documento',edad='$edad',genero='$genero',pais='$pais',provincia='$provincia',municipio='$municipio',barrio='$barrio',telefono='$telefono' where id='$cod'";
+	       
+            $obj->actualizar($sql);
 	
-		 }else if($funcion=="eliminar")
-		 {
-			 $sql="delete from tablaotros where id='$o'";
-			 $obj->actualizar($sql);
+           header("location: index.php");
+	
+		   }else if( $funcion == "eliminar"){
+
+			     $sql = "delete from tablaotros where id='$o'";
+			     $obj->actualizar( $sql );
 			 
-			 }
-
-    ;
-	  $obj=new conexion();
-	  $sql="select * from tablaotros";
-	 $dato= $obj->mostrarRegistro($sql);
+			 };
+	        
+          $obj  = new conexion();
+	        $sql = "select * from tablaotros";
+	        $dato = $obj->mostrarRegistro($sql);
 	 
 	 
 	 
@@ -71,7 +74,7 @@ $telefono=$_POST['telefono'];
 
 <body style="background:#FC9">
 <input type="submit" onclick="window.print() " value="imprimir esta pagina" />
-</form>
+
 <form action="listado.php" method="post">
 <h3>Search by name</h3>
 <input type="search" name="buscar" placeholder="Buscar por nombre"/><input type="submit" name="btn1" value="Enviar" />
@@ -103,7 +106,9 @@ $telefono=$_POST['telefono'];
          <td style="color:#009;background:#3F0"><h6><strong><h2>Edit</h2></strong></h6></td>
          <td style="color:#F00;background:#ff0;"><h6><strong><h2>Remove</h2></strong></h6></td>
      <tr/>
-    <?php foreach($dato as $fila){?>
+
+    <?php foreach( $dato as $fila ) { ?>
+
      <tr style="background:#999">
         <td > <h4 ><?php echo $fila['id']?></h4> </td>
         <td> <h4><?php echo $fila['nombre']?></h4></td>
